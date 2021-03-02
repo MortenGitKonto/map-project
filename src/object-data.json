@@ -2,7 +2,8 @@
     "objects": [
         {
             "id": 1,
-            "type": "object",
+            "type": "drone",
+            "name": "Quadcopter",
             "coordinates": [
                 [
                     59.397906,

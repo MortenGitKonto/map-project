@@ -9,20 +9,19 @@ import MarkerComponent from "./MapComponent";
 function App() {
 
   const [seconds, setSeconds] = useState(0);
-  const [arrayElement, setArrayElement] = useState(0);
+  const [arrayElementNr, setArrayElementNr] = useState(0);
 
   useEffect(() => {
-    if (arrayElement === (objectData.objects[0].coordinates.length - 1)) {
-      setArrayElement(0)
-    } else {
-      setArrayElement(arrayElement + 1)
-    }
+    // Todo: To track an object, code logic should be inserted here below...
+
+
+    /////////////////////////////////////////////////////////////////
     // eslint-disable-next-line
   }, [seconds])
 
   useEffect(() => {
-    console.log(arrayElement)
-  }, [arrayElement])
+    // console.log(arrayElementNr)
+  }, [arrayElementNr])
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -35,23 +34,30 @@ function App() {
     <>
       <div>
         <MapContainer center={[59.397906, 24.657638]} zoom={12} >
+          
           <TileLayer
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           />
+          <div className="information-box">
+          {objectData.objects.map(object => (
+            <span className="info" key={object.id}>
+              <p> Object name: {object.name}</p>
+              <p> Object coordinates: {object.coordinates[0]}, {object.coordinates[1]}</p>
+            </span>)
+          )}
+          </div>
           {objectData.objects.map(object => 
             <MarkerComponent
               key={object.id}
               object={object} 
-              arrayElement={arrayElement}
+              arrayElement={arrayElementNr}
             />
           )}
         </MapContainer>
       </div>
     </>
     );
-
-
 }
 
 export default App;
