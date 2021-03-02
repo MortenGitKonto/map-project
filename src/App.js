@@ -43,7 +43,7 @@ function App() {
           {objectData.objects.map(object => (
             <span className="info" key={object.id}>
               <p> Object name: {object.name}</p>
-              <p> Object coordinates: {object.coordinates[0]}, {object.coordinates[1]}</p>
+              <p> Object coordinates: {object.coordinates[arrayElementNr][0]}, {object.coordinates[arrayElementNr][1]}</p>
             </span>)
           )}
           </div>
@@ -51,7 +51,7 @@ function App() {
             <MarkerComponent
               key={object.id}
               object={object} 
-              arrayElement={arrayElementNr}
+              arrayElementNr={arrayElementNr}
             />
           )}
         </MapContainer>
