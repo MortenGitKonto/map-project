@@ -40,12 +40,12 @@ function App() {
             attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           />
           <div className="information-box">
-          {objectData.objects.map(object => (
-            <span className="info" key={object.id}>
-              <p> Object name: {object.name}</p>
-              <p> Object coordinates: {object.coordinates[arrayElementIndex][0]}, {object.coordinates[arrayElementIndex][1]}</p>
-            </span>)
-          )}
+            {objectData.objects.map(object => (
+              <span className="info" key={object.id}>
+                <p> Object name: {object.name}</p>
+                <p> Object coordinates: {object.coordinates[arrayElementIndex][0]}, {object.coordinates[arrayElementIndex][1]}</p>
+              </span>)
+            )}
           </div>
           {objectData.objects.map(object => 
             <MarkerComponent
