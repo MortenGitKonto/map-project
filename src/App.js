@@ -4,12 +4,12 @@ import './App.css';
 import * as objectData from "./object-data.json"
 
 import { MapContainer, TileLayer } from 'react-leaflet'
-import MarkerComponent from "./MapComponent";
+import MarkerComponent from "./MarkerComponent";
 
 function App() {
 
   const [seconds, setSeconds] = useState(0);
-  const [arrayElementNr, setArrayElementNr] = useState(0);
+  const [arrayElementIndex, setArrayElementIndex] = useState(0);
 
   useEffect(() => {
     // Todo: To track an object, code logic should be inserted here below...
@@ -20,8 +20,8 @@ function App() {
   }, [seconds])
 
   useEffect(() => {
-    // console.log(arrayElementNr)
-  }, [arrayElementNr])
+    // console.log(arrayElementIndex)
+  }, [arrayElementIndex])
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -43,7 +43,7 @@ function App() {
           {objectData.objects.map(object => (
             <span className="info" key={object.id}>
               <p> Object name: {object.name}</p>
-              <p> Object coordinates: {object.coordinates[arrayElementNr][0]}, {object.coordinates[arrayElementNr][1]}</p>
+              <p> Object coordinates: {object.coordinates[arrayElementIndex][0]}, {object.coordinates[arrayElementIndex][1]}</p>
             </span>)
           )}
           </div>
@@ -51,7 +51,7 @@ function App() {
             <MarkerComponent
               key={object.id}
               object={object} 
-              arrayElementNr={arrayElementNr}
+              arrayElementIndex={arrayElementIndex}
             />
           )}
         </MapContainer>
