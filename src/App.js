@@ -13,7 +13,11 @@ function App() {
 
   useEffect(() => {
     // Todo: To track an object, code logic should be inserted here below...
-
+    if (arrayElementIndex === (objectData.objects[0].coordinates.length - 1)) {
+      setArrayElementIndex(0)
+    } else {
+      setArrayElementIndex(arrayElementIndex + 1)
+    }
 
     /////////////////////////////////////////////////////////////////
     // eslint-disable-next-line
